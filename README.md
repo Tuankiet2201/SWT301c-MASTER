@@ -41,7 +41,7 @@ This repository contains automated test cases for the TechPanda website. The tes
 
 ## Contributors
 
-- [Your Name](https://github.com/your_username)
+- [Your Name](https://github.com/sontv6666)
 - [Other Contributor](https://github.com/other_contributor)
 
 Feel free to open an issue or submit a pull request for any improvements or suggestions.
