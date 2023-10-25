@@ -1,4 +1,4 @@
-"# SWT301" 
+# SWT301
 # Test Automation Readme
 
 This repository contains automated test cases for the TechPanda website. The tests have been implemented using [Selenium](https://www.selenium.dev/) and [JUnit](https://junit.org/junit5/).
