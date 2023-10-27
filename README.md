@@ -21,9 +21,9 @@ This repository contains automated test cases for the TechPanda website. The tes
 
 1. Go to [TechPanda](http://live.techpanda.org/).
 2. Click on the 'MOBILE' menu.
-3. In the list of all mobiles, read the cost of Sony Xperia mobile (which is $100).
+3. In the list of all mobiles, read the Sony Xperia mobile.
 4. Click on the Sony Xperia mobile.
-5. Read the Sony Xperia mobile from the detail page.
+5. Read the cost of Sony Xperia mobile (which is $100) from the detail page.
 6. Compare the product value in the list and detail page to ensure they are equal ($100).
 
 ## Setup
