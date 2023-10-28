@@ -39,7 +39,7 @@ public class TC02 {
             System.out.println("Cost of Sony Xperia mobile from detail page is: " + detailcost);
 
             // Step 6: Compare product value in list and detail page
-            if (cost.equals(cost)) {
+            if (cost.equals(detailcost)) {
                 System.out.println("Product value in list and detail page are equal.");
             } else {
                 System.out.println("Product value in list and detail page are not equal.");
