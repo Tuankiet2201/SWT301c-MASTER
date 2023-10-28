@@ -5,9 +5,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
 
 public class TC01 {
-    public static void main(String[] args) {
+    @Test
+    public void testcse01()  {
 
         // Create an instance of the ChromeDrive
         WebDriver driver = driverFactory.getChromeDriver();
@@ -18,11 +21,7 @@ public class TC01 {
         // Step 2: Verify the title of the page
         String expectedTitle = "Home page";
         String actualTitle = driver.getTitle();
-        if (actualTitle.equals(expectedTitle)) {
-            System.out.println("Title verification successful: " + actualTitle);
-        } else {
-            System.out.println("Title verification failed: " + actualTitle);
-        }
+        AssertJUnit.assertEquals("Title verification failed", expectedTitle, actualTitle);
 
         // Step 3: Click on the "MOBILE" menu
         WebElement mobileMenu = driver.findElement(By.linkText("MOBILE"));
@@ -35,11 +34,7 @@ public class TC01 {
 
         // Step 5: Verify all products are sorted by name
         WebElement productList = driver.findElement(By.className("products-grid"));
-        if (isSorted(productList, "h2")) {
-            System.out.println("Products are sorted by name");
-        } else {
-            System.out.println("Products are not sorted by name");
-        }
+        AssertJUnit.assertTrue("Products are not sorted by name", isSorted(productList, "h2"));
 
         // Close the browser
         driver.quit();

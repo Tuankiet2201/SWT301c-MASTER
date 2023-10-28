@@ -5,10 +5,14 @@ import model.pages.RegisterPageSimple;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
+
 import java.util.Random;
 
 public class TC05 {
-    public static void main(String[] args) {
+    @Test
+    public void testcse05() {
         // Create an instance of the ChromeDriver
         WebDriver driver = driverFactory.getChromeDriver();
 
@@ -21,7 +25,6 @@ public class TC05 {
             accountMenu.click();
             WebElement myAccountLink = driver.findElement(By.xpath("//div[@id='header-account']//a[@title='My Account'][normalize-space()='My Account']"));
             myAccountLink.click();
-
 
             // Step 3: Click 'Create an Account' link and fill New User information
             WebElement createAccountLink = driver.findElement(By.xpath("//a[@title='Create an Account']"));
@@ -40,17 +43,17 @@ public class TC05 {
             registerPage.inputConfirmation("test123");
             registerPage.tickIsSubscribed();
 
-
             // Step 4: Click 'Register'
             registerPage.clickRegister();
 
             // Step 5: Verify Registration is done
             WebElement registrationMessage = driver.findElement(By.xpath("//span[normalize-space()='Thank you for registering with Main Website Store.']"));
-            String message = registrationMessage.getText();
-            System.out.println("Registration message: " + message);
+            String expectedMessage = "Thank you for registering with Main Website Store.";
+            String actualMessage = registrationMessage.getText();
+            AssertJUnit.assertEquals("Registration message mismatch", expectedMessage, actualMessage);
 
             // Step 6: Go to TV menu
-            WebElement tvMenu = driver.findElement(By.xpath("//a[normalize-space()='TV']"));;
+            WebElement tvMenu = driver.findElement(By.xpath("//a[normalize-space()='TV']"));
             tvMenu.click();
 
             // Step 7: Add product in your wish list - use product - LG LCD
@@ -65,15 +68,17 @@ public class TC05 {
             WebElement emailField = driver.findElement(By.id("email_address"));
             emailField.sendKeys("example@example.com");
             WebElement messageField = driver.findElement(By.id("message"));
-            messageField.sendKeys("Check out  wishlist cua toi ne anh em oi!");
+            messageField.sendKeys("Check out wishlist cua toi ne anh em oi!");
             WebElement shareButton = driver.findElement(By.xpath("//span[contains(text(),'Share Wishlist')]"));
             shareButton.click();
 
             // Step 10: Check wishlist is shared
             WebElement sharedMessage = driver.findElement(By.xpath("//span[normalize-space()='Your Wishlist has been shared.']"));
-            String sharedMsg = sharedMessage.getText();
-            System.out.println("Share wishlist message: " + sharedMsg);
+            String expectedSharedMsg = "Your Wishlist has been shared.";
+            String actualSharedMsg = sharedMessage.getText();
+            AssertJUnit.assertEquals("Shared wishlist message mismatch", expectedSharedMsg, actualSharedMsg);
         } finally {
+            System.out.println("Thanks for testing");
             // Close the browser
             driver.quit();
         }
