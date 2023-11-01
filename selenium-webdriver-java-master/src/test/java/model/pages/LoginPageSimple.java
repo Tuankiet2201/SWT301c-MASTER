@@ -8,9 +8,9 @@ public class LoginPageSimple {
     private WebDriver driver;
 
     // Declare element selector value here
-    private By usernameSelector = By.id("username");
-    private By passwordSelector = By.id("password");
-    private By loginBtnSelector = By.cssSelector("[type='submit']");
+    private By usernameSelector = By.id("email");
+    private By passwordSelector = By.id("pass");
+    private By loginBtnSelector = By.id("send2");
 
     // Constructor with required parameter as a WebDriver instance
     public LoginPageSimple(WebDriver driver) {
